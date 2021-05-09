@@ -1,0 +1,40 @@
+.main {
+	transition: background-color 0.1s, border-color 0.1s, box-shadow 0.1s;
+	border: solid 1px transparent;
+}
+
+/* INTERACTION */
+:global(.light) .main:hover {
+	background-color: var(--gray-1);
+	border-color: var(--gray-1);
+}
+:global(.light) .main:active {
+	background-color: var(--white);
+	border-color: var(--gray-3);
+}
+:global(.dark) .main:hover {
+	background-color: var(--gray-7);
+	border-color: var(--gray-6);
+}
+:global(.dark) .main:active {
+	background-color: var(--gray-8);
+	border-color: var(--gray-5);
+}
+
+/* SELECTED */
+
+:global(.light) .selected:not(.x) {
+	background-color: var(--gray-1);
+}
+:global(.dark) .selected:not(.x) {
+	background-color: var(--gray-9);
+}
+
+/* DISABLED */
+
+:global(.light) .main:disabled:not(.x) {
+	color: var(--gray-3);
+}
+:global(.dark) .main:disabled:not(.x) {
+	color: var(--gray-3);
+}

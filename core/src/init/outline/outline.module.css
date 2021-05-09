@@ -1,0 +1,25 @@
+.normal,
+.always {
+	transition: border 0.2s ease-out, box-shadow 0.2s ease-out;
+	outline: none;
+}
+
+/* The "not" to ensure this wins the border and shadow set at widgets, which is
+something like:
+:global(.light) .foo:hover { ... } */
+:global(.light) .normal:not(.x):global(.focus-visible),
+:global(.light) .always:not(.x):focus,
+:global(.dark) .normal:not(.x):global(.focus-visible),
+:global(.dark) .always:not(.x):focus {
+	border-color: var(--highlight-4);
+	box-shadow: 0px 0px 4px 0px var(--highlight-4);
+}
+
+/* Don't group this with ":focus" even though they have the same body. This is
+because some browsers don't understand ":focus-visible" yet and the whole CSS
+definition will not be used if a selector is invalid. */
+:global(.light) .normal:not(.x):focus-visible,
+:global(.dark) .normal:not(.x):focus-visible {
+	border-color: var(--highlight-4);
+	box-shadow: 0px 0px 4px 0px var(--highlight-4);
+}
