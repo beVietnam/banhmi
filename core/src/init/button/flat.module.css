@@ -35,28 +35,28 @@
 
 :global(.light) .highlight,
 :global(.dark) .highlight {
-	color: var(--support-blue-1);
+	color: var(--support-3);
 	border-color: transparent;
 }
 
 :global(.light) .highlight:hover,
 :global(.dark) .highlight:hover {
-	color: var(--support-blue-1);
-	background-color: var(--support-blue-0);
+	color: var(--support-3);
+	background-color: var(--support-1);
 	border-color: transparent;
 }
 
 :global(.light) .highlight:active,
 :global(.dark) .highlight:active {
-	color: var(--support-blue-1);
-	border-color: var(--support-blue-1);
+	color: var(--support-3);
+	border-color: var(--support-3);
 	background-color: transparent;
 }
 
 :global(.light) .highlight.selected:not(.x),
 :global(.dark) .highlight.selected:not(.x) {
 	background-color: transparent;
-	border-color: var(--support-blue-1);
+	border-color: var(--support-3);
 }
 
 /* DISABLED */
