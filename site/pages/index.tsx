@@ -7,7 +7,7 @@ import s from "./index.module.css";
 
 const Header = (): JSX.Element => (
 	<div className={[s.footer, border.strong, text.muted].join(" ")}>
-		<Icon display="block" path={Begroup} size={32} />
+		<Icon display="block" component={Begroup} size={32} />
 	</div>
 );
 
