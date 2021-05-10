@@ -1,7 +1,7 @@
 import { border, Button, ProgressCircle } from "@moai/core";
 import outset from "./outset.module.css";
 import flat from "./flat.module.css";
-import s from "./size.module.css";
+import size from "./size.module.css";
 
 Button.styles.outset = {
 	busy: {
@@ -30,11 +30,11 @@ Button.sizes = (() => {
 	const MediumIcon = { iconSize: 16, iconMargin: 8 };
 	const SmallIcon = { iconSize: 14, iconMargin: 6 };
 	return {
-		large: { main: s.large, ...LargeIcon },
-		largeIcon: { main: s.largeIcon, ...LargeIcon },
-		medium: { main: s.medium, ...MediumIcon },
-		mediumIcon: { main: s.mediumIcon, ...SmallIcon },
-		small: { main: s.small, ...SmallIcon },
-		smallIcon: { main: s.smallIcon, ...SmallIcon },
+		large: { main: size.large, ...LargeIcon },
+		largeIcon: { main: size.largeIcon, ...LargeIcon },
+		medium: { main: size.medium, ...MediumIcon },
+		mediumIcon: { main: size.mediumIcon, ...SmallIcon },
+		small: { main: size.small, ...SmallIcon },
+		smallIcon: { main: size.smallIcon, ...SmallIcon },
 	};
 })();

@@ -1,33 +1,30 @@
 .large {
 	height: 40px;
-	padding: 9px 16px;
+	padding: 0px 16px;
 	font-size: 16px;
 }
 
 .largeIcon {
 	height: 40px;
 	width: 40px;
-	padding: 12px;
 }
 
 .medium {
 	height: 32px;
-	padding: 6px 16px;
+	padding: 0px 16px;
 }
 
 .mediumIcon {
 	height: 32px;
 	width: 32px;
-	padding: 8px;
 }
 
 .small {
 	height: 24px;
-	padding: 2px 12px;
+	padding: 0px 12px;
 }
 
 .smallIcon {
 	height: 24px;
 	width: 24px;
-	padding: 5px;
 }
