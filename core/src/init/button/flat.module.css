@@ -1,6 +1,7 @@
 .main {
 	transition: background-color 0.1s, border-color 0.1s, box-shadow 0.1s;
 	border: solid 1px transparent;
+	font-weight: 600;
 }
 
 /* INTERACTION */
@@ -28,6 +29,34 @@
 }
 :global(.dark) .selected:not(.x) {
 	background-color: var(--gray-9);
+}
+
+/* HIGHLIGHT */
+
+:global(.light) .highlight,
+:global(.dark) .highlight {
+	color: var(--support-3);
+	border-color: transparent;
+}
+
+:global(.light) .highlight:hover,
+:global(.dark) .highlight:hover {
+	color: var(--support-3);
+	background-color: var(--support-1);
+	border-color: transparent;
+}
+
+:global(.light) .highlight:active,
+:global(.dark) .highlight:active {
+	color: var(--support-3);
+	border-color: var(--support-3);
+	background-color: transparent;
+}
+
+:global(.light) .highlight.selected:not(.x),
+:global(.dark) .highlight.selected:not(.x) {
+	background-color: transparent;
+	border-color: var(--support-3);
 }
 
 /* DISABLED */
