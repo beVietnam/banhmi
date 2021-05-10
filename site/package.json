@@ -8,9 +8,9 @@
 		"start": "next start"
 	},
 	"dependencies": {
-		"@banhmi/core": "0.20.0",
+		"@banhmi/core": "1.0.0-rc1",
 		"@banhmi/icon": "0.13.0",
-		"@moai/core": "0.236.0",
+		"@moai/core": "1.0.0-rc7",
 		"@types/node": "14.14.35",
 		"@types/react": "17.0.3",
 		"next": "10.0.9",
