@@ -1755,10 +1755,10 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.22.tgz#219dfd89ae5b97a8801f015323ffa4b62f45718b"
   integrity sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==
 
-"@moai/core@1.0.0-rc8":
-  version "1.0.0-rc8"
-  resolved "https://registry.yarnpkg.com/@moai/core/-/core-1.0.0-rc8.tgz#b174c50fce2c4e1753f68c074cd154f0aedeee66"
-  integrity sha512-zb2+OCHsmKvhUC29RWMh6I7Ia9Nd7MZB7CESPuCrZ5A0GERXM098KsFSwbHRWiBajabJlTPMtgIJpnS7VP0EpQ==
+"@moai/core@1.0.0-rc9":
+  version "1.0.0-rc9"
+  resolved "https://registry.yarnpkg.com/@moai/core/-/core-1.0.0-rc9.tgz#f94001ef7ecf26d4e24c5e1552611035825736f3"
+  integrity sha512-JZK+bgUmospayEWxzxXY5kcAMmdZIjdLqhg7r08LJFFy0WE47O7l/LFhYA7FKsHKRcl5uUQu420AUmxDLRk6Pw==
   dependencies:
     "@popperjs/core" "2.9.2"
     "@tippyjs/react" "4.2.5"
