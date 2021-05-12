@@ -33,7 +33,7 @@ Button.sizes = (() => {
 		large: { main: size.large, ...LargeIcon },
 		largeIcon: { main: size.largeIcon, ...LargeIcon },
 		medium: { main: size.medium, ...MediumIcon },
-		mediumIcon: { main: size.mediumIcon, ...SmallIcon },
+		mediumIcon: { main: size.mediumIcon, ...MediumIcon },
 		small: { main: size.small, ...SmallIcon },
 		smallIcon: { main: size.smallIcon, ...SmallIcon },
 	};
