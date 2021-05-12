@@ -9,7 +9,7 @@ const IconSet = ({ icons }: { icons: any }): JSX.Element => (
 	<div className={s.set}>
 		{Object.keys(icons).map((key) => (
 			<div key={key} className={s.icon}>
-				<Icon display="block" path={(icons as any)[key]} />
+				<Icon display="block" component={(icons as any)[key]} />
 				<div className={s.label}>{key}</div>
 			</div>
 		))}

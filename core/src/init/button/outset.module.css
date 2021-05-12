@@ -1,7 +1,7 @@
 .main {
 	transition: background-color 0.1s, border-color 0.1s, box-shadow 0.1s;
 	border: solid 1px transparent;
-	font-weight: 500;
+	font-weight: 600;
 }
 
 :global(.group-tail) .main {
