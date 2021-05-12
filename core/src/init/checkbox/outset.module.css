@@ -4,7 +4,6 @@
 	border: solid 1px transparent;
 	--shadow-size: 0px 0.5px 2px;
 }
-
 /* BASE COLOR */
 
 :global(.light) .input,
