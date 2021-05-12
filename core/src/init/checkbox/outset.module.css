@@ -11,8 +11,12 @@
 	--shadow: var(--shadow-size) rgba(0, 0, 0, 0.2);
 	background-color: var(--gray-0);
 	border-color: var(--gray-2);
-	/* border-radius: var(--radius-2); */
 }
+
+:global(.light) .input[type="checkbox"] {
+	border-radius: var(--radius-2);
+}
+
 :global(.light) .input:hover,
 :global(.light) .input:indeterminate:hover {
 	border-color: var(--highlight-2);
