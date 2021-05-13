@@ -1,0 +1,29 @@
+.username {
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 24px;
+	color: var(--gray-8);
+	align-self: stretch;
+}
+
+.role {
+	font-size: 12px;
+	line-height: 18px;
+	color: var(--gray-3);
+	text-transform: capitalize;
+	align-self: stretch;
+}
+
+.header {
+	padding: 24px 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.avatar {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	margin: 4px 8px 0 12px;
+}
