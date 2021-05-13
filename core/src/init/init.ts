@@ -1,6 +1,7 @@
 // DONOT RE-ORDER THE IMPORTS. The import order in this file is important.
 
 // Components
+import "./category/category";
 import "./icon/icon";
 import "./outline/outline";
 import "./progress/circle";
