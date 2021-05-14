@@ -1,6 +1,7 @@
 .footer {
 	border-top: dashed 1px var(--gray-1);
 	margin-bottom: 16px;
+	padding-top: 8px;
 }
 
 .footerItems:hover,
@@ -18,6 +19,7 @@
 	display: flex;
 	align-items: center;
 	font-size: 14px;
+	font-weight: 600;
 	margin: 0 8px;
 	padding: 8px 10px;
 	border-radius: 6px;
@@ -26,14 +28,14 @@
 }
 
 .footerItemsTitle {
-	padding: 2px 8px;
+	margin-left: 15px;
 }
 
 .icon {
-	margin: 1px;
+	margin: 2.5px;
 }
 
 .icon > svg {
-	width: 18px;
-	height: 17px;
+	width: 14.7px;
+	height: 14.7px;
 }
