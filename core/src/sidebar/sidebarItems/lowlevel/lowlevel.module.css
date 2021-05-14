@@ -1,0 +1,57 @@
+.lowlevel {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	padding: 0 16px 0 24px;
+	border-radius: 6px;
+	color: var(--gray-4);
+	background-color: white;
+}
+
+.lowlevel:active {
+	background-color: var(--gray-0);
+}
+
+.lowlevel:hover {
+	color: var(--gray-8);
+}
+
+.right {
+	margin-left: auto;
+	color: var(--gray-8);
+}
+
+.title {
+	padding: 10px 28px;
+}
+
+.line {
+	border-left: solid 1px var(--gray-1);
+}
+
+.lowlevel:hover .line {
+	border-color: var(--gray-8);
+}
+
+.badge > span {
+	border-radius: 50%;
+	padding: 10px 0;
+	margin-left: auto;
+	width: 19px;
+	height: 20px;
+	font-size: 10px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.lozenge > span {
+	width: 38px;
+	height: 24px;
+	border-radius: var(--radius-2);
+	font-size: 10px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+}

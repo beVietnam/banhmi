@@ -1,0 +1,66 @@
+.container {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	margin: 0 8px;
+	padding: 8px;
+	border-radius: 6px;
+	color: var(--gray-4);
+	border-radius: 6px;
+	background-color: white;
+}
+
+.container:hover,
+.container:active {
+	background-color: var(--gray-0);
+}
+
+.container:active,
+.active {
+	color: var(--gray-8);
+}
+
+.right {
+	margin-left: auto;
+	color: var(--gray-8);
+}
+
+.icon {
+	margin: 1px;
+}
+
+.icon > svg {
+	width: 18px;
+	height: 17px;
+}
+
+.title {
+	padding: 2px 8px;
+}
+
+.dropdown {
+	margin-left: 13px;
+}
+
+.badge > span {
+	border-radius: 50%;
+	padding: 10px 0;
+	margin-left: auto;
+	width: 19px;
+	height: 20px;
+	font-size: 10px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.lozenge > span {
+	width: 38px;
+	height: 24px;
+	border-radius: var(--radius-2);
+	font-size: 10px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+}
