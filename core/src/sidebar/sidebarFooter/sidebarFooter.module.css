@@ -1,0 +1,26 @@
+.footer {
+	border-top: dashed 1px var(--gray-1);
+}
+
+.footer:hover,
+.footer:active {
+	cursor: pointer;
+}
+
+.footerItems {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	width: 232px;
+	height: 40px;
+	padding: 0 17px;
+	border-radius: 6px;
+	color: var(--gray-4);
+	border-radius: 6px;
+	background-color: white;
+}
+
+.footerItemsTitle {
+	margin: 0 13px;
+	padding: 10px 0;
+}
