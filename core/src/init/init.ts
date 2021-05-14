@@ -14,3 +14,4 @@ import "./pane/pane";
 import "./popover/popover";
 import "./select/select";
 import "./tab/tab";
+import "./category/category";
