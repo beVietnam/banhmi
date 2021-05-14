@@ -1,7 +1,6 @@
 import s from "./highlevel.module.css";
 import { highlevel } from "../../common";
 import { Icon, Tag } from "@moai/core";
-import * as outline from "@banhmi/icon/outline";
 import * as solid from "@banhmi/icon/solid";
 
 const SidebarHighLevel = (props: { highlevelItem: highlevel }): JSX.Element => {
