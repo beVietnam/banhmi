@@ -12,9 +12,11 @@ export const Sidebar = (props: {
 		<div className={s.container}>
 			<SidebarHeader user={props.user} />
 			{props.dropdownItems.map((item) => {
-				return <SidebarBody item={item} />;
+				return <SidebarBody dropdownItem={item} />;
 			})}
-			<SidebarFooter />
+			<div style={{ marginTop: "auto" }}>
+				<SidebarFooter />
+			</div>
 		</div>
 	);
 };

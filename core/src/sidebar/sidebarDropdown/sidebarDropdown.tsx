@@ -3,16 +3,22 @@ import SidebarLowLevel from "../sidebarItems/lowlevel/lowlevel";
 import { useState } from "react";
 import { highlevel } from "../common";
 
-const SidebarDropdown = (props: { item: highlevel }): JSX.Element => {
+const SidebarDropdown = (props: { highlevelItem: highlevel }): JSX.Element => {
 	const [isOpenSubMenu, setIsOpenSubMenu] = useState(false);
+
+	function toggleDropdown() {
+		setIsOpenSubMenu(!isOpenSubMenu);
+		props.highlevelItem.isActive = !isOpenSubMenu;
+	}
+
 	return (
 		<div>
-			<div onClick={() => setIsOpenSubMenu(!isOpenSubMenu)}>
-				<SidebarHighLevel item={props.item} />
+			<div onClick={() => toggleDropdown()}>
+				<SidebarHighLevel highlevelItem={props.highlevelItem} />
 			</div>
 			{isOpenSubMenu &&
-				props.item.items.map((item) => {
-					return <SidebarLowLevel item={item} />;
+				props.highlevelItem.lowlevelItems.map((item) => {
+					return <SidebarLowLevel lowlevelItem={item} />;
 				})}
 		</div>
 	);

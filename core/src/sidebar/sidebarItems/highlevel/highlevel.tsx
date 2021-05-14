@@ -1,40 +1,47 @@
 import s from "./highlevel.module.css";
 import { highlevel } from "../../common";
-import { categoryColors, Icon, Tag } from "@moai/core";
+import { Icon, Tag } from "@moai/core";
 import * as outline from "@banhmi/icon/outline";
 import * as solid from "@banhmi/icon/solid";
 
-const SidebarHighLevel = (props: { item: highlevel }): JSX.Element => {
+const SidebarHighLevel = (props: { highlevelItem: highlevel }): JSX.Element => {
 	return (
-		<div className={s.container}>
-			{/* active element */}
-			<span className={s.icon}>
-				{true && (
-					<Icon
-						display="inline"
-						component={outline.DownloadClound}
-					></Icon>
-				)}
-				{false && (
-					<Icon
-						display="inline"
-						component={solid.DownloadClound}
-					></Icon>
-				)}
-			</span>
-			<span className={s.title}>{props.item.title}</span>
+		<div
+			className={[
+				s.container,
+				props.highlevelItem.isActive ? s.active : "",
+			].join(" ")}
+		>
+			{/* icon */}
+			{!props.highlevelItem.isActive && (
+				<span className={s.icon}>
+					{props.highlevelItem.outlineIcon}
+				</span>
+			)}
+			{props.highlevelItem.isActive && (
+				<span className={s.icon}>{props.highlevelItem.solidIcon}</span>
+			)}
+
+			{/* title */}
+			<span className={s.title}>{props.highlevelItem.info.title}</span>
+
+			{/* null || badge || lozenge */}
 			<span className={s.right}>
-				{props.item.badge && (
-					<span
-						className={s.round}
-						style={{ color: categoryColors.red }}
-					>
-						{props.item.badge.toString()}
-					</span>
-				)}
-				{props.item.isLozenge && (
-					<Tag color={Tag.colors.green}>New</Tag>
-				)}
+				<span className={s.badge}>
+					{props.highlevelItem.info.badge && (
+						<Tag color={Tag.colors.red}>
+							{props.highlevelItem.info.badge.toString()}
+						</Tag>
+					)}
+				</span>
+
+				<span className={s.lozenge}>
+					{props.highlevelItem.info.isLozenge && (
+						<Tag color={Tag.colors.green}>New</Tag>
+					)}
+				</span>
+
+				{/* dropdown */}
 				<span className={s.dropdown}>
 					<Icon display="inline" component={solid.ChevronDown}></Icon>
 				</span>
