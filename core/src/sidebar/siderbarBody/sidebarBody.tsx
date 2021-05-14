@@ -2,12 +2,12 @@ import { dropdownItem } from "../common";
 import SidebarDropdown from "../sidebarDropdown/sidebarDropdown";
 import SidebarHeading from "../sidebarItems/heading/heading";
 
-const SidebarBody = (props: { dropdownItem: dropdownItem }): JSX.Element => {
+const SidebarBody = (props: { item: dropdownItem }): JSX.Element => {
 	return (
 		<div>
-			<SidebarHeading>{props.dropdownItem.title}</SidebarHeading>
-			{props.dropdownItem.highlevelItems.map((value) => {
-				return <SidebarDropdown highlevelItem={value} />;
+			<SidebarHeading>{props.item.title}</SidebarHeading>
+			{props.item.items.map((value) => {
+				return <SidebarDropdown item={value} />;
 			})}
 		</div>
 	);

@@ -1,24 +1,24 @@
-export interface itemInfo {
+export interface lowlevel {
 	title: string;
 	badge?: number;
 	isLozenge?: boolean;
 }
 
 export interface highlevel {
-	outlineIcon: React.ReactNode;
-	solidIcon: React.ReactNode;
-	isActive: boolean;
-	info: itemInfo;
-	lowlevelItems: itemInfo[];
+	// icon: React.ReactNode;
+	title: string;
+	badge?: number;
+	isLozenge?: boolean;
+	items: lowlevel[];
 }
 
 export interface dropdownItem {
 	title: string;
-	highlevelItems: highlevel[];
+	items: highlevel[];
 }
 
 export interface userInfo {
 	name: string;
 	role: string;
-	picture: React.ReactNode;
+	avatar: React.ReactNode;
 }

@@ -1,27 +1,26 @@
 import s from "./lowlevel.module.css";
-import { itemInfo } from "../../common";
-import { Tag } from "@moai/core";
+import { lowlevel } from "../../common";
+import { Icon, Tag } from "@moai/core";
+import * as outline from "@banhmi/icon/outline";
+import * as solid from "@banhmi/icon/solid";
 
-const SidebarLowLevel = (props: { lowlevelItem: itemInfo }): JSX.Element => {
+const SidebarLowLevel = (props: { item: lowlevel }): JSX.Element => {
 	return (
 		<div className={s.lowlevel}>
 			<span className={[s.title, s.line].join(" ")}>
-				{props.lowlevelItem.title}
+				{props.item.title}
 			</span>
 			<span className={s.right}>
-				<span className={s.badge}>
-					{props.lowlevelItem.badge && (
+				{props.item.badge && (
+					<span className={s.round}>
 						<Tag color={Tag.colors.red}>
-							{props.lowlevelItem.badge.toString()}
+							{props.item.badge.toString()}
 						</Tag>
-					)}
-				</span>
-
-				<span className={s.lozenge}>
-					{props.lowlevelItem.isLozenge && (
-						<Tag color={Tag.colors.green}>New</Tag>
-					)}
-				</span>
+					</span>
+				)}
+				{props.item.isLozenge && (
+					<Tag color={Tag.colors.green}>New</Tag>
+				)}
 			</span>
 		</div>
 	);
