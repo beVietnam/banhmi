@@ -25,12 +25,6 @@ html:not(.x) {
 	--support-3: hsl(221, 100%, 61%);
 	--support-4: hsl(217, 85%, 49%);
 
-	--success-2: hsl(118, 57%, 92%);
-	--success-5: hsl(140, 63%, 41%);
-
-	--failure-2: hsla(0, 76%, 94%, 1);
-	--failure-5: hsla(0, 100%, 34%, 1);
-
 	/* Border Radius */
 	--radius-1: 6px;
 
