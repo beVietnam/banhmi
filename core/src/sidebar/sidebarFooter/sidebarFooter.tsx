@@ -5,7 +5,9 @@ import * as outline from "@banhmi/icon/outline";
 const FooterItem = (props: { children: string; type: any }): JSX.Element => {
 	return (
 		<div className={s.footerItems}>
-			<Icon display="inline" component={props.type} />
+			<span className={s.icon}>
+				<Icon display="inline" component={props.type} />
+			</span>
 			<span className={s.footerItemsTitle}>{props.children}</span>
 		</div>
 	);
