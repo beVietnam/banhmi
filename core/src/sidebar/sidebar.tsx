@@ -4,18 +4,20 @@ import * as common from "./common";
 import { useState } from "react";
 
 const Sidebar = (props: { menuItems: common.menu[] }): JSX.Element => {
-	const [path, setPath] = useState("");
+	const [path, setPath] = useState([]);
 	return (
 		<div className={s.container}>
 			{props.menuItems &&
-				props.menuItems.map((item) => {
+				props.menuItems.map((item, index) => {
 					return (
-						<Menu
-							menu={item}
-							onClick={setPath}
-							defaultPath={path}
-							parentPath={""}
-						/>
+						<div key={index}>
+							<Menu
+								menu={item}
+								onClick={setPath}
+								defaultPath={path}
+								parentPath={""}
+							/>
+						</div>
 					);
 				})}
 		</div>

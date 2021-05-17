@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
 
 const Menu = (props: {
 	menu: common.menu;
-	onClick: (path: string) => void;
-	defaultPath: string;
+	onClick: (path: string[]) => void;
+	defaultPath: string[];
 	parentPath: string;
 }): JSX.Element => {
 	const [isActive, setActive] = useState(
@@ -18,14 +18,34 @@ const Menu = (props: {
 		setActive(props.defaultPath.includes(props.menu.path));
 	}, [props.defaultPath]);
 
+	function activateMenu() {
+		setActive(!isActive);
+		let newPath = props.defaultPath.slice();
+		console.log("cur path " + newPath);
+
+		console.log("cur state " + isActive);
+
+		if (!isActive) {
+			newPath.push(props.menu.path);
+		} else {
+			newPath.splice(newPath.indexOf(props.menu.path), 1);
+			if (props.menu.submenu) {
+				props.menu.submenu.map((item) => {
+					let index = newPath.indexOf(item.path) || -1;
+					if (index != -1)
+						newPath.splice(newPath.indexOf(item.path), 1);
+				});
+			}
+		}
+		props.onClick(newPath);
+		console.log("new path " + newPath);
+	}
+
 	return (
 		<div>
 			<div
 				className={[s.container, isActive ? s.active : ""].join(" ")}
-				onClick={() => {
-					setActive(!isActive);
-					props.onClick(props.parentPath + props.menu.path);
-				}}
+				onClick={() => activateMenu()}
 			>
 				{/* icon */}
 				{props.menu.icon && !isActive && (
@@ -60,6 +80,7 @@ const Menu = (props: {
 					)}
 				</span>
 			</div>
+
 			{/* submenu items */}
 			{props.menu.submenu &&
 				isActive &&

@@ -19,44 +19,81 @@ const typeLozenge = (
 	</span>
 );
 
-const defaultSubMenu: common.menu = {
-	path: "/101",
-	title: "Item title",
-	type: null,
-	icon: null,
-	isSubmenu: true,
-	submenu: [],
-};
-
-let submenu1 = Object.assign({}, defaultSubMenu);
-submenu1.path = "/102";
-submenu1.type = typeBadge;
-
-let submenu2 = Object.assign({}, defaultSubMenu);
-submenu2.path = "/103";
-submenu2.type = typeLozenge;
-submenu2.submenu = [defaultSubMenu, submenu1];
-
-const defaultMenu: common.menu = {
+const menu1: common.menu = {
 	path: "/1000",
 	title: "Item title",
-	type: null,
 	icon: {
 		outline: <Icon display="inline" component={outline.DownloadClound} />,
 		solid: <Icon display="inline" component={solid.DownloadClound} />,
 	},
 	isSubmenu: false,
-	submenu: [defaultSubMenu, submenu1, submenu2],
+	submenu: [
+		{ path: "/1001", title: "Item title", isSubmenu: true },
+		{
+			path: "/1002",
+			title: "Item title",
+			isSubmenu: true,
+			type: typeBadge,
+		},
+		{
+			path: "/1003",
+			title: "Item title",
+			isSubmenu: true,
+			type: typeLozenge,
+		},
+	],
 };
 
-let menu1 = Object.assign({}, defaultMenu);
-menu1.path = "/2000";
-menu1.type = typeBadge;
+const menu2: common.menu = {
+	path: "/2000",
+	title: "Item title",
+	icon: {
+		outline: <Icon display="inline" component={outline.DownloadClound} />,
+		solid: <Icon display="inline" component={solid.DownloadClound} />,
+	},
+	isSubmenu: false,
+	submenu: [
+		{ path: "/2001", title: "Item title", isSubmenu: true },
+		{
+			path: "/2002",
+			title: "Item title",
+			isSubmenu: true,
+			type: typeBadge,
+		},
+		{
+			path: "/2003",
+			title: "Item title",
+			isSubmenu: true,
+			type: typeLozenge,
+		},
+	],
+};
 
-let menu2 = Object.assign({}, defaultMenu);
-menu2.path = "/3000";
-menu2.type = typeLozenge;
+const menu3: common.menu = {
+	path: "/3000",
+	title: "Item title",
+	icon: {
+		outline: <Icon display="inline" component={outline.DownloadClound} />,
+		solid: <Icon display="inline" component={solid.DownloadClound} />,
+	},
+	isSubmenu: false,
+	submenu: [
+		{ path: "/3001", title: "Item title", isSubmenu: true },
+		{
+			path: "/3002",
+			title: "Item title",
+			isSubmenu: true,
+			type: typeBadge,
+		},
+		{
+			path: "/3003",
+			title: "Item title",
+			isSubmenu: true,
+			type: typeLozenge,
+		},
+	],
+};
 
 storiesOf("Sidebar", module).add("Main", () => {
-	return <Sidebar menuItems={[defaultMenu, menu1, menu2]} />;
+	return <Sidebar menuItems={[menu1, menu2, menu3]} />;
 });
