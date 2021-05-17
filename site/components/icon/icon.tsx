@@ -2,7 +2,7 @@ import * as outline from "@banhmi/icon/outline";
 import * as solid from "@banhmi/icon/solid";
 import * as colored from "@banhmi/icon/colored";
 import { DivPx, Icon } from "@moai/core";
-import { GallerySection } from "@moai/core/dist/_gallery";
+import { GallerySection } from "@moai/gallery";
 import s from "./icon.module.css";
 
 const IconSet = ({ icons }: { icons: any }): JSX.Element => (
