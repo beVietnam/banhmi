@@ -1,7 +1,7 @@
 import { Begroup } from "@banhmi/icon/colored";
 import { DivPx, border, text, Icon } from "@moai/core";
-import { Gallery } from "@moai/core/dist/_gallery";
-import "@moai/core/dist/_gallery/bundle.css";
+import { Gallery } from "@moai/gallery";
+import "@moai/gallery/dist/bundle.css";
 import { GalleryIcon } from "../components/icon/icon";
 import s from "./index.module.css";
 
