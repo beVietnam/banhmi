@@ -17,7 +17,8 @@
 }
 
 .container:hover,
-.container:active {
+.container:active,
+.active {
 	background-color: var(--gray-0);
 	cursor: pointer;
 }
@@ -34,11 +35,6 @@
 
 .icon {
 	margin: 1px;
-}
-
-.icon > svg {
-	width: 18px;
-	height: 17px;
 }
 
 .line {

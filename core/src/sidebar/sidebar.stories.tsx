@@ -5,6 +5,7 @@ import * as outline from "@banhmi/icon/outline";
 import * as solid from "@banhmi/icon/solid";
 import * as common from "./common";
 import s from "./sidebar.module.css";
+import { useState } from "react";
 
 //data
 const typeBadge = (
@@ -19,81 +20,70 @@ const typeLozenge = (
 	</span>
 );
 
-const menu1: common.menu = {
+const menu1: common.IMenu = {
+	title: "Item title",
 	path: "/1000",
-	title: "Item title",
-	icon: {
-		outline: <Icon display="inline" component={outline.DownloadClound} />,
-		solid: <Icon display="inline" component={solid.DownloadClound} />,
-	},
-	isSubmenu: false,
-	submenu: [
-		{ path: "/1001", title: "Item title", isSubmenu: true },
+	iconNormal: <Icon display="inline" component={outline.DownloadClound} />,
+	iconActive: <Icon display="inline" component={solid.DownloadClound} />,
+	childrens: [
+		{ title: "Item title", path: "/1101" },
 		{
-			path: "/1002",
 			title: "Item title",
-			isSubmenu: true,
-			type: typeBadge,
+			path: "/1102",
+			after: typeBadge,
 		},
 		{
-			path: "/1003",
 			title: "Item title",
-			isSubmenu: true,
-			type: typeLozenge,
+			path: "/1103",
+			after: typeLozenge,
 		},
 	],
 };
 
-const menu2: common.menu = {
+const menu2: common.IMenu = {
+	title: "Item title",
 	path: "/2000",
-	title: "Item title",
-	icon: {
-		outline: <Icon display="inline" component={outline.DownloadClound} />,
-		solid: <Icon display="inline" component={solid.DownloadClound} />,
-	},
-	isSubmenu: false,
-	submenu: [
-		{ path: "/2001", title: "Item title", isSubmenu: true },
+	after: typeBadge,
+	iconNormal: <Icon display="inline" component={outline.DownloadClound} />,
+	iconActive: <Icon display="inline" component={solid.DownloadClound} />,
+	childrens: [
+		{ title: "Item title", path: "/2101" },
 		{
-			path: "/2002",
 			title: "Item title",
-			isSubmenu: true,
-			type: typeBadge,
+			path: "/2102",
+			after: typeBadge,
 		},
 		{
-			path: "/2003",
 			title: "Item title",
-			isSubmenu: true,
-			type: typeLozenge,
+			path: "/2103",
+			after: typeLozenge,
 		},
 	],
 };
 
-const menu3: common.menu = {
-	path: "/3000",
+const menu3: common.IMenu = {
 	title: "Item title",
-	icon: {
-		outline: <Icon display="inline" component={outline.DownloadClound} />,
-		solid: <Icon display="inline" component={solid.DownloadClound} />,
-	},
-	isSubmenu: false,
-	submenu: [
-		{ path: "/3001", title: "Item title", isSubmenu: true },
+	path: "/3000",
+	after: typeLozenge,
+	iconNormal: <Icon display="inline" component={outline.DownloadClound} />,
+	iconActive: <Icon display="inline" component={solid.DownloadClound} />,
+	childrens: [
+		{ title: "Item title", path: "/3101" },
 		{
-			path: "/3002",
 			title: "Item title",
-			isSubmenu: true,
-			type: typeBadge,
+			path: "/3102",
+			after: typeBadge,
 		},
 		{
-			path: "/3003",
 			title: "Item title",
-			isSubmenu: true,
-			type: typeLozenge,
+			path: "/3103",
+			after: typeLozenge,
 		},
 	],
 };
 
 storiesOf("Sidebar", module).add("Main", () => {
-	return <Sidebar menuItems={[menu1, menu2, menu3]} />;
+	return (
+		<Sidebar menuItems={[menu1, menu2, menu3]} sectionTitle="subsection" />
+	);
 });

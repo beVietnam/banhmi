@@ -1,65 +1,60 @@
 import s from "./menu.module.css";
-import * as common from "../common";
+import { IMenu } from "../common";
 import { Icon } from "@moai/core";
 import * as solid from "@banhmi/icon/solid";
-import { useEffect, useState } from "react";
+import React, { useState, ComponentType, ElementType } from "react";
 
-const Menu = (props: {
-	menu: common.menu;
-	onClick: (path: string[]) => void;
-	defaultPath: string[];
-	parentPath: string;
-}): JSX.Element => {
-	const [isActive, setActive] = useState(
-		props.defaultPath.includes(props.menu.path)
-	);
+interface LinkProps {
+	to: string;
+	children: React.ReactNode;
+}
+function Link({ to, children }: LinkProps) {
+	return <a href={to}>{children}</a>;
+}
 
-	useEffect(() => {
-		setActive(props.defaultPath.includes(props.menu.path));
-	}, [props.defaultPath]);
+type WrappedProps<P = {}> = {
+	as: ComponentType<P> | ElementType;
+} & P;
 
-	function activateMenu() {
-		setActive(!isActive);
-		let newPath = props.defaultPath.slice();
-		console.log("cur path " + newPath);
+const Menu = <T,>(
+	props: {
+		menu: IMenu;
+		// routerName: string;
+	} & WrappedProps<T>
+): JSX.Element => {
+	const [isActive, setActive] = useState(props.menu.isActive);
+	// const Wrapper = ({ children, ...rest }: { children: React.ReactNode }) => {
+	// 	if (props.component)
+	// 		return <props.component {...rest}>{children}</props.component>;
+	// 	return <div {...rest}>{children}</div>;
+	// };
 
-		console.log("cur state " + isActive);
-
-		if (!isActive) {
-			newPath.push(props.menu.path);
-		} else {
-			newPath.splice(newPath.indexOf(props.menu.path), 1);
-			if (props.menu.submenu) {
-				props.menu.submenu.map((item) => {
-					let index = newPath.indexOf(item.path) || -1;
-					if (index != -1)
-						newPath.splice(newPath.indexOf(item.path), 1);
-				});
-			}
-		}
-		props.onClick(newPath);
-		console.log("new path " + newPath);
-	}
+	const { as: Wrapper } = props;
+	console.log(Wrapper);
 
 	return (
 		<div>
 			<div
-				className={[s.container, isActive ? s.active : ""].join(" ")}
-				onClick={() => activateMenu()}
+				className={[
+					s.container,
+					props.menu.isActive ? s.active : "",
+				].join(" ")}
+				onClick={() => setActive(!isActive)}
 			>
 				{/* icon */}
-				{props.menu.icon && !isActive && (
-					<span className={s.icon}>{props.menu.icon.outline}</span>
+				{props.menu.iconNormal && !isActive && (
+					<span className={s.icon}>{props.menu.iconNormal}</span>
 				)}
-				{props.menu.icon && isActive && (
-					<span className={s.icon}>{props.menu.icon.solid}</span>
+
+				{props.menu.iconActive && isActive && (
+					<span className={s.icon}>{props.menu.iconActive}</span>
 				)}
 
 				{/* title */}
 				<span
 					className={[
 						s.title,
-						props.menu.isSubmenu ? s.line : "",
+						!props.menu.iconNormal ? s.line : "",
 					].join(" ")}
 				>
 					{props.menu.title}
@@ -67,10 +62,10 @@ const Menu = (props: {
 
 				{/* type */}
 				<span className={s.right}>
-					<span>{props.menu.type}</span>
+					<span>{props.menu.after}</span>
 
 					{/* dropdown */}
-					{props.menu.submenu && props.menu.submenu.length > 0 && (
+					{props.menu.childrens && (
 						<span className={s.dropdown}>
 							<Icon
 								display="inline"
@@ -81,19 +76,28 @@ const Menu = (props: {
 				</span>
 			</div>
 
-			{/* submenu items */}
-			{props.menu.submenu &&
+			{props.menu.childrens &&
 				isActive &&
-				props.menu.submenu.map((item, index) => {
+				props.menu.childrens.map((item, index) => {
+					// const active = props.routerName.includes(
+					// 	item.path.toLowerCase()
+					// );
 					return (
-						<div key={index} className={s.submenu}>
+						<Wrapper key={index}>
 							<Menu
-								menu={item}
-								onClick={props.onClick}
-								defaultPath={props.defaultPath}
-								parentPath={props.menu.path}
+								menu={{
+									title: item.title,
+									path: item.path,
+									iconNormal: item.iconNormal,
+									iconActive: item.iconActive,
+									isActive: item.isActive,
+									childrens: item.childrens,
+									after: item.after,
+								}}
+								// routerName={props.routerName}
+								as="a"
 							/>
-						</div>
+						</Wrapper>
 					);
 				})}
 		</div>
