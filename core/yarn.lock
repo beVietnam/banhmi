@@ -1767,7 +1767,7 @@
     react-icons "^4.2.0"
     react-popper "^2.2.5"
 
-"@moai/gallery@^1.0.0-rc11":
+"@moai/gallery@1.0.0-rc11":
   version "1.0.0-rc11"
   resolved "https://registry.yarnpkg.com/@moai/gallery/-/gallery-1.0.0-rc11.tgz#223259707c63f8a82e00d92801adee7fd26923eb"
   integrity sha512-wE04OGJ+DDPkWRCv3LdjdrIl1FiobpwnCZvz9mEU2nlcHyKTCqnoArR7sLHUOcrxfm+Ej/x0fXpuzUKj+Yus6g==
