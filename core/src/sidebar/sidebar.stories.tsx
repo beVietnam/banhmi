@@ -1,11 +1,10 @@
 import { storiesOf } from "@storybook/react";
-import Sidebar from "./sidebar";
-import { Tag, Icon } from "@moai/core";
+import { Collapse } from "./collapse/collapse";
+import * as common from "./common";
+import { Icon, Tag } from "@moai/core";
 import * as outline from "@banhmi/icon/outline";
 import * as solid from "@banhmi/icon/solid";
-import * as common from "./common";
 import s from "./sidebar.module.css";
-import { useState } from "react";
 
 //data
 const typeBadge = (
@@ -82,8 +81,14 @@ const menu3: common.IMenu = {
 	],
 };
 
+const router = "/";
+
 storiesOf("Sidebar", module).add("Main", () => {
 	return (
-		<Sidebar menuItems={[menu1, menu2, menu3]} sectionTitle="subsection" />
+		<div className={s.container}>
+			<Collapse menu={menu1} router={router} as="a" />
+			<Collapse menu={menu2} router={router} as="a" />
+			<Collapse menu={menu3} router={router} as="a" />
+		</div>
 	);
 });

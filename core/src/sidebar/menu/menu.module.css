@@ -3,29 +3,29 @@
 	align-items: center;
 	font-size: 14px;
 	font-weight: 600;
-	margin: 0 8px;
 	padding: 0 8px;
 	border-radius: 6px;
 	color: var(--gray-4);
 	border-radius: 6px;
-	background-color: white;
-	transition: all 0.6s ease;
-}
-
-.container .submenu {
-	transition: all 0.2 ease;
 }
 
 .container:hover,
-.container:active,
-.active {
+.root {
 	background-color: var(--gray-0);
-	cursor: pointer;
 }
 
-.container:active,
 .active {
 	color: var(--gray-8);
+}
+
+.line {
+	border-left: solid 1px var(--gray-1);
+	padding-left: 24px !important;
+	margin-left: 7px;
+}
+
+.active .line {
+	border-color: var(--gray-8);
 }
 
 .right {
@@ -35,18 +35,6 @@
 
 .icon {
 	margin: 1px;
-}
-
-.line {
-	border-left: solid 1px var(--gray-1);
-	padding-left: 24px !important;
-	margin-left: 7px;
-}
-
-.container:hover .line,
-.container:active .line,
-.active .line {
-	border-color: var(--gray-8);
 }
 
 .title {
