@@ -1,0 +1,10 @@
+.container {
+	width: 232px;
+	background-color: white;
+	padding: 10px 8px;
+}
+
+.container:hover,
+.container:active {
+	user-select: none;
+}

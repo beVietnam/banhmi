@@ -1,16 +1,10 @@
 import { storiesOf } from "@storybook/react";
 import { Heading } from "./heading/heading";
+import s from "./sidebar.module.css";
 
 storiesOf("Sidebar", module).add("Main", () => {
 	return (
-		<div className="container">
-			<style>{`
-		        .container {
-			        width: 232px;
-			        background-color:white;
-			        padding: 8px;
-		        }
-		    `}</style>
+		<div className={s.container}>
 			<Heading>subsection</Heading>
 		</div>
 	);
