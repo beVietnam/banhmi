@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/react";
-import { Header } from "./sidebar";
+import { Header } from "./header/header";
 
 storiesOf("Sidebar", module).add("Main", () => (
 	<div className="container">
