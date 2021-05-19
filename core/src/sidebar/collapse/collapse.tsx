@@ -5,7 +5,8 @@ import { useState } from "react"
 export const Collapse = (
 	props: {
 		menu: IMenu;
-		router: string;
+		path: string;
+        setPath: (path: string) => void;
 	} & ChildWrapperProps
 ):JSX.Element => {
 	const [isActive, setActive] = useState(props.menu.isActive);
@@ -23,8 +24,8 @@ export const Collapse = (
 			}}/>
 		</div>
 		{isActive && props.menu.childrens && props.menu.childrens.map((item) => {
-			const active = props.router.includes(item.path);
-			return <div key={item.path}>
+			const active = props.path.includes(item.path);
+			return <div key={item.path} onClick={() => props.setPath(item.path)}>
 				<Menu menu={{
 				title: item.title,
 				path: item.path,
