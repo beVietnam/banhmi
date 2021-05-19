@@ -3,7 +3,7 @@ import { Header } from "./header/header";
 import { IUserInfo } from "./common";
 import s from "./sidebar.module.css";
 
-const defaultUser: IUserInfo = {
+const defaultUser = {
 	username: "beSomething",
 	userRole: "super admin",
 	userImg: (
