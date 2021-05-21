@@ -1,3 +1,9 @@
+export interface IUserInfo {
+	username: string;
+	userRole: string;
+	userImg: React.ReactNode;
+}
+
 export interface IMenu {
 	title: string;
 	path: string;
