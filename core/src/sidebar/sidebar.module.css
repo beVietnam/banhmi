@@ -1,0 +1,28 @@
+.container {
+	width: 232px;
+	background-color: white;
+	padding: 10px 8px;
+}
+
+.badge > span {
+	border-radius: 50%;
+	padding: 10px 0;
+	margin-left: auto;
+	width: 19px;
+	height: 20px;
+	font-size: 10px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.lozenge > span {
+	width: 38px;
+	height: 24px;
+	border-radius: var(--radius-2);
+	font-size: 10px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: uppercase;
+}
