@@ -1,0 +1,35 @@
+.header {
+	padding: 16px 0;
+	display: flex;
+	align-items: center;
+}
+
+.header:hover,
+.header:active {
+	user-select: none;
+}
+
+.picture {
+	width: 32px;
+	height: 32px;
+}
+
+.right {
+	padding-left: 12px;
+}
+
+.username {
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 24px;
+	color: var(--gray-8);
+	align-self: stretch;
+}
+
+.role {
+	font-size: 12px;
+	line-height: 18px;
+	color: var(--gray-3);
+	text-transform: capitalize;
+	align-self: stretch;
+}
