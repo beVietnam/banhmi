@@ -3,7 +3,7 @@ import * as S from "@banhmi/icon/solid";
 import { coreIcons } from "@moai/core";
 
 coreIcons.caret = S.ChevronDown;
-// coreIcons.check = O.Check;
+coreIcons.check = O.Check;
 coreIcons.chevronDown = O.ChevronDown;
 coreIcons.chevronLeft = O.ChevronLeft;
 coreIcons.chevronRight = O.ChevronRight;

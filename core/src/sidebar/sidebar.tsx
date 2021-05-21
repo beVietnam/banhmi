@@ -1,1 +1,3 @@
-export const Sidebar = (): JSX.Element => <div>Coming soon</div>;
+export const Sidebar = (): JSX.Element => {
+	return <div></div>;
+};
