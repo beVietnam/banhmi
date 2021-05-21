@@ -1,8 +1,14 @@
 import { storiesOf } from "@storybook/react";
-import { Header } from "./header/header";
-import { IUserInfo } from "./common";
+import { useState } from "react";
 import s from "./sidebar.module.css";
+import { Icon, Tag } from "@moai/core";
+import * as outline from "@banhmi/icon/outline";
+import * as solid from "@banhmi/icon/solid";
+import { IUserInfo, IMenu } from "./common";
+import { Collapse } from "./collapse/collapse";
+import { Header } from "./header/header";
 
+//data
 const defaultUser: IUserInfo = {
 	username: "beSomething",
 	userRole: "super admin",
@@ -14,8 +20,88 @@ const defaultUser: IUserInfo = {
 	),
 };
 
-storiesOf("Sidebar", module).add("Main", () => (
-	<div className={s.container}>
-		<Header userInfo={defaultUser} />
-	</div>
-));
+const typeBadge = (
+	<span className={s.badge}>
+		<Tag color={Tag.colors.red}>3</Tag>
+	</span>
+);
+
+const typeLozenge = (
+	<span className={s.lozenge}>
+		<Tag color={Tag.colors.green}>NEW</Tag>
+	</span>
+);
+
+const menu1: IMenu = {
+	title: "Item title",
+	path: "/1000",
+	iconNormal: <Icon display="inline" component={outline.DownloadClound} />,
+	iconActive: <Icon display="inline" component={solid.DownloadClound} />,
+	childrens: [
+		{ title: "Item title", path: "/1101" },
+		{
+			title: "Item title",
+			path: "/1102",
+			after: typeBadge,
+		},
+		{
+			title: "Item title",
+			path: "/1103",
+			after: typeLozenge,
+		},
+	],
+};
+
+const menu2: IMenu = {
+	title: "Item title",
+	path: "/2000",
+	after: typeBadge,
+	iconNormal: <Icon display="inline" component={outline.DownloadClound} />,
+	iconActive: <Icon display="inline" component={solid.DownloadClound} />,
+	childrens: [
+		{ title: "Item title", path: "/2101" },
+		{
+			title: "Item title",
+			path: "/2102",
+			after: typeBadge,
+		},
+		{
+			title: "Item title",
+			path: "/2103",
+			after: typeLozenge,
+		},
+	],
+};
+
+const menu3: IMenu = {
+	title: "Item title",
+	path: "/3000",
+	after: typeLozenge,
+	iconNormal: <Icon display="inline" component={outline.DownloadClound} />,
+	iconActive: <Icon display="inline" component={solid.DownloadClound} />,
+	childrens: [
+		{ title: "Item title", path: "/3101" },
+		{
+			title: "Item title",
+			path: "/3102",
+			after: typeBadge,
+		},
+		{
+			title: "Item title",
+			path: "/3103",
+			after: typeLozenge,
+		},
+	],
+};
+
+storiesOf("Sidebar", module).add("Main", () => {
+	const [path, setPath] = useState("/");
+	return (
+		<div className={s.container}>
+			<Header userInfo={defaultUser} />
+			<Collapse menu={menu1} path={path} setPath={setPath} as="a" />
+			<Collapse menu={menu2} path={path} setPath={setPath} as="a" />
+			<Collapse menu={menu3} path={path} setPath={setPath} as="a" />
+		</div>
+	);
+});
