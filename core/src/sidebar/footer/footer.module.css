@@ -1,0 +1,6 @@
+.footer {
+	border-top: dashed 1px var(--gray-1);
+	padding-bottom: 16px;
+	padding-top: 8px;
+	margin-top: auto;
+}
