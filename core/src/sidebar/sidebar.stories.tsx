@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react";
 import { useState } from "react";
 import s from "./sidebar.module.css";
-import { Icon, Tag, DivEm } from "@moai/core";
+import { Icon, Tag } from "@moai/core";
 import * as outline from "@banhmi/icon/outline";
 import * as solid from "@banhmi/icon/solid";
 import { IUserInfo, IMenu } from "./common";
