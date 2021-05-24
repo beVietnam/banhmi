@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react";
 import { useState } from "react";
 import s from "./sidebar.module.css";
-import { Icon, Tag } from "@moai/core";
+import { Icon, Tag, DivEm } from "@moai/core";
 import * as outline from "@banhmi/icon/outline";
 import * as solid from "@banhmi/icon/solid";
 import { IUserInfo, IMenu } from "./common";
@@ -10,6 +10,7 @@ import { Header } from "./header/header";
 import { Heading } from "./heading/heading";
 
 //data
+//header
 const defaultUser: IUserInfo = {
 	username: "beSomething",
 	userRole: "super admin",
@@ -21,6 +22,7 @@ const defaultUser: IUserInfo = {
 	),
 };
 
+//body
 const typeBadge = (
 	<span className={s.badge}>
 		<Tag color={Tag.colors.red}>3</Tag>
@@ -95,15 +97,64 @@ const menu3: IMenu = {
 	],
 };
 
+//footer
+const setting: IMenu = {
+	title: "Cài đặt",
+	path: "/setting",
+	iconNormal: <Icon display="inline" component={outline.Tool} />,
+	iconActive: <Icon display="inline" component={solid.Tool} />,
+	isChild: false,
+};
+const user: IMenu = {
+	title: "Phân quyền",
+	path: "/user",
+	iconNormal: <Icon display="inline" component={outline.User} />,
+	iconActive: <Icon display="inline" component={solid.User} />,
+	isChild: false,
+};
+const noti: IMenu = {
+	title: "Thông báo",
+	path: "/noti",
+	iconNormal: <Icon display="inline" component={outline.Noti} />,
+	iconActive: <Icon display="inline" component={solid.Noti} />,
+	isChild: false,
+};
+const lock: IMenu = {
+	title: "Thay đổi mật khẩu",
+	path: "/lock",
+	iconNormal: <Icon display="inline" component={outline.Lock} />,
+	iconActive: <Icon display="inline" component={solid.Lock} />,
+	isChild: false,
+};
+const logout: IMenu = {
+	title: "Đăng xuất",
+	path: "/logout",
+	iconNormal: <Icon display="inline" component={outline.Logout} />,
+	iconActive: <Icon display="inline" component={solid.Logout} />,
+	isChild: false,
+};
+
 storiesOf("Sidebar", module).add("Main", () => {
 	const [path, setPath] = useState("/");
 	return (
 		<div className={s.container}>
-			<Heading>subsection</Heading>
+			{/* Header */}
 			<Header userInfo={defaultUser} />
+
+			{/* Body */}
+			<Heading>subsection</Heading>
 			<Collapse menu={menu1} path={path} setPath={setPath} as="a" />
 			<Collapse menu={menu2} path={path} setPath={setPath} as="a" />
 			<Collapse menu={menu3} path={path} setPath={setPath} as="a" />
+
+			{/* Footer */}
+			<div className={s.footer}>
+				<Collapse menu={setting} path={path} setPath={setPath} as="a" />
+				<Collapse menu={user} path={path} setPath={setPath} as="a" />
+				<Collapse menu={noti} path={path} setPath={setPath} as="a" />
+				<Collapse menu={lock} path={path} setPath={setPath} as="a" />
+				<Collapse menu={logout} path={path} setPath={setPath} as="a" />
+			</div>
 		</div>
 	);
 });

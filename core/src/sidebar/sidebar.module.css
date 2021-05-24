@@ -2,11 +2,21 @@
 	width: 232px;
 	background-color: white;
 	padding: 10px 8px;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 }
 
 .container:hover,
 .container:active {
 	user-select: none;
+}
+
+.footer {
+	border-top: dashed 1px var(--gray-1);
+	padding-bottom: 16px;
+	padding-top: 8px;
+	margin-top: auto;
 }
 
 .badge > span {
