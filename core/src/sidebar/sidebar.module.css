@@ -2,11 +2,25 @@
 	width: 232px;
 	background-color: white;
 	padding: 10px 8px;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
 }
 
 .container:hover,
 .container:active {
 	user-select: none;
+}
+
+.scroll {
+	height: inherit;
+	overflow: scroll;
+}
+
+.footer {
+	border-top: dashed 1px var(--gray-1);
+	padding-bottom: 6px;
+	padding-top: 8px;
 }
 
 .badge > span {

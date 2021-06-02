@@ -14,3 +14,8 @@ export interface IMenu {
 	childrens?: IMenu[];
 	isActive?: boolean;
 }
+
+export interface ISection {
+	title: string;
+	data: IMenu[];
+}
