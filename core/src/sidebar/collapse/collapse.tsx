@@ -1,6 +1,6 @@
 import { Menu, WrappedProps as ChildWrapperProps } from "../menu/menu";
 import { IMenu } from "../common";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const Collapse = (
 	props: {
@@ -16,12 +16,19 @@ export const Collapse = (
 		if (!isActive && props.path.includes(props.menu.path)) {
 			props.setPath("/");
 		}
+		if (!isActive && !props.menu.childrens) {
+			props.setPath(props.menu.path);
+		}
 	}
 
 	return (
 		<div>
 			<div onClick={() => toggleCollapse()}>
-				{(props.menu.isActive = isActive)}
+				{
+					(props.menu.isActive = props.menu.childrens
+						? isActive
+						: props.path.includes(props.menu.path))
+				}
 				<Menu menu={props.menu} />
 			</div>
 			{isActive &&
