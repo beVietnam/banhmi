@@ -9,14 +9,14 @@ export const Collapse = (
 		setPath: (path: string) => void;
 	} & ChildWrapperProps
 ): JSX.Element => {
-	const [isActive, setActive] = useState(props.menu.isActive);
+	const [isExpand, setExpand] = useState(props.menu.isActive);
 
 	function toggleCollapse() {
-		setActive(!isActive);
-		if (!isActive && props.path.includes(props.menu.path)) {
+		setExpand(!isExpand);
+		if (!isExpand && props.path.includes(props.menu.path)) {
 			props.setPath("/");
 		}
-		if (!isActive && !props.menu.childrens) {
+		if (!isExpand && !props.menu.childrens) {
 			props.setPath(props.menu.path);
 		}
 	}
@@ -24,14 +24,10 @@ export const Collapse = (
 	return (
 		<div>
 			<div onClick={() => toggleCollapse()}>
-				{
-					(props.menu.isActive = props.menu.childrens
-						? isActive
-						: props.path.includes(props.menu.path))
-				}
+				{(props.menu.isActive = props.path.includes(props.menu.path))}
 				<Menu menu={props.menu} />
 			</div>
-			{isActive &&
+			{isExpand &&
 				props.menu.childrens &&
 				props.menu.childrens.map((item) => {
 					const active = props.path.includes(item.path);
