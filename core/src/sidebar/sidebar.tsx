@@ -1,16 +1,19 @@
-import { useState } from "react";
 import { Collapse } from "./collapse/collapse";
 import { Header } from "./header/header";
 import { Heading } from "./heading/heading";
 import s from "./sidebar.module.css";
 import { IMenu, IUserInfo, ISection } from "./common";
+import { WrappedProps as ChildWrapperProps } from "./menu/menu";
 
-export const Sidebar = (props: {
-	headerData: IUserInfo;
-	bodyData: ISection[];
-	footerData: IMenu[];
-}): JSX.Element => {
-	const [path, setPath] = useState("/");
+export const Sidebar = (
+	props: {
+		headerData: IUserInfo;
+		bodyData: ISection[];
+		footerData: IMenu[];
+		path: string;
+		setPath: (path: string) => void;
+	} & ChildWrapperProps
+): JSX.Element => {
 	return (
 		<div className={s.container}>
 			{/* Header */}
@@ -27,9 +30,9 @@ export const Sidebar = (props: {
 									<Collapse
 										key={menuIndex}
 										menu={menu}
-										path={path}
-										setPath={setPath}
-										as="a"
+										path={props.path}
+										setPath={props.setPath}
+										as={props.as}
 									/>
 								);
 							})}
@@ -45,9 +48,9 @@ export const Sidebar = (props: {
 						<Collapse
 							key={menuIndex}
 							menu={menu}
-							path={path}
-							setPath={setPath}
-							as="a"
+							path={props.path}
+							setPath={props.setPath}
+							as={props.as}
 						/>
 					);
 				})}

@@ -6,6 +6,7 @@ import * as solid from "@banhmi/icon/solid";
 import { IUserInfo, IMenu, ISection } from "./common";
 import { Sidebar } from "./sidebar";
 import img from "./ic_home_bus.png";
+import { useState } from "react";
 
 //data
 //header
@@ -225,11 +226,15 @@ const footerData: IMenu[] = [
 ];
 
 storiesOf("Sidebar", module).add("Main", () => {
+	const [path, setPath] = useState("/");
 	return (
 		<Sidebar
 			headerData={defaultUser}
 			bodyData={bodyData}
 			footerData={footerData}
+			as="a"
+			path={path}
+			setPath={setPath}
 		/>
 	);
 });

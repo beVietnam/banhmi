@@ -14,7 +14,7 @@
 
 .scroll {
 	height: inherit;
-	overflow: scroll;
+	overflow: auto;
 }
 
 .footer {
