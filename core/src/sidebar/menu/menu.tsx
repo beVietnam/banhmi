@@ -21,6 +21,7 @@ export const Menu = <T,>(
 				props.menu.isActive ? s.active : "",
 				props.menu.isActive && !props.menu.isChild ? s.root : "",
 			].join(" ")}
+			href={props.menu.path}
 		>
 			{/* icon */}
 			{props.menu.iconNormal && !props.menu.isActive && (
