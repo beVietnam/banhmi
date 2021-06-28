@@ -1,24 +1,25 @@
 {
-  "name": "@banhmi/root",
-  "version": "1.0.0",
-  "license": "MIT",
-  "scripts": {
-    "prepare": "husky install",
-    "postinstall": "yarn core:install & yarn icon:install & yarn site:install",
-    "core:install": "cd core && yarn install",
-    "icon:install": "cd icon && yarn install",
-    "site:install": "cd site && yarn install"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "4.23.0",
-    "@typescript-eslint/parser": "4.23.0",
-    "eslint": "7.26.0",
-    "husky": "6.0.0",
-    "lint-staged": "11.0.0",
-    "prettier": "2.3.0",
-    "typescript": "4.2.4"
-  },
-  "lint-staged": {
-    ".{ts,tsx}": "yarn prettier --write && yarn eslint"
-  }
+	"name": "@banhmi/root",
+	"version": "1.0.0",
+	"license": "MIT",
+	"scripts": {
+		"prepare": "husky install",
+		"postinstall": "yarn core:install & yarn icon:install & yarn site:install",
+		"core:install": "cd core && yarn install",
+		"icon:install": "cd icon && yarn install",
+		"site:install": "cd site && yarn install",
+		"release": "npx np --no-publish"
+	},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "4.23.0",
+		"@typescript-eslint/parser": "4.23.0",
+		"eslint": "7.26.0",
+		"husky": "6.0.0",
+		"lint-staged": "11.0.0",
+		"prettier": "2.3.0",
+		"typescript": "4.2.4"
+	},
+	"lint-staged": {
+		".{ts,tsx}": "yarn prettier --write && yarn eslint"
+	}
 }
