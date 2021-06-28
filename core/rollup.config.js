@@ -28,6 +28,7 @@ const bundleMain = {
 		"@banhmi/icon/solid",
 		"@banhmi/icon/outline",
 		"@moai/core",
+		"react",
 		"react/jsx-runtime",
 	],
 	plugins: [
