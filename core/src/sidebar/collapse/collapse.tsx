@@ -26,12 +26,14 @@ export const Collapse = (
 			{props.menu.childrens ? (
 				<div>
 					<div onClick={() => toggleCollapse()}>
-						{
-							(props.menu.isActive = props.path.includes(
-								props.menu.path.toLowerCase()
-							))
-						}
-						<Menu menu={props.menu} />
+						<Menu
+							menu={{
+								...props.menu,
+								isActive: props.path.includes(
+									props.menu.path.toLowerCase()
+								),
+							}}
+						/>
 					</div>
 					{isExpand &&
 						props.menu.childrens.map((item) => {
@@ -47,21 +49,29 @@ export const Collapse = (
 										)
 									}
 								>
-									{(item.isActive = active)}
-									{(item.isChild = true)}
-									<Menu menu={item} as={props.as} />
+									<Menu
+										menu={{
+											...item,
+											isActive: active,
+											isChild: true,
+										}}
+										as={props.as}
+									/>
 								</div>
 							);
 						})}
 				</div>
 			) : (
 				<div onClick={() => props.setPath(props.menu.path)}>
-					{
-						(props.menu.isActive = props.path.includes(
-							props.menu.path.toLowerCase()
-						))
-					}
-					<Menu menu={props.menu} as={props.as} />
+					<Menu
+						menu={{
+							...props.menu,
+							isActive: props.path.includes(
+								props.menu.path.toLowerCase()
+							),
+						}}
+						as={props.as}
+					/>
 				</div>
 			)}
 		</div>
