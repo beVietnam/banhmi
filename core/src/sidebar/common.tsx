@@ -13,6 +13,7 @@ export interface IMenu {
 	isChild?: boolean;
 	childrens?: IMenu[];
 	isActive?: boolean;
+	isDisable?: boolean;
 }
 
 export interface ISection {

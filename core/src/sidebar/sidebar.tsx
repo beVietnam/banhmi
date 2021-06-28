@@ -27,13 +27,17 @@ export const Sidebar = (
 							<Heading>{value.title}</Heading>
 							{value.data.map((menu, menuIndex) => {
 								return (
-									<Collapse
-										key={menuIndex}
-										menu={menu}
-										path={props.path}
-										setPath={props.setPath}
-										as={props.as}
-									/>
+									<div>
+										{!menu.isDisable && (
+											<Collapse
+												key={menuIndex}
+												menu={menu}
+												path={props.path}
+												setPath={props.setPath}
+												as={props.as}
+											/>
+										)}
+									</div>
 								);
 							})}
 						</div>
@@ -45,13 +49,17 @@ export const Sidebar = (
 			<div className={s.footer}>
 				{props.footerData.map((menu, menuIndex) => {
 					return (
-						<Collapse
-							key={menuIndex}
-							menu={menu}
-							path={props.path}
-							setPath={props.setPath}
-							as={props.as}
-						/>
+						<div>
+							{!menu.isDisable && (
+								<Collapse
+									key={menuIndex}
+									menu={menu}
+									path={props.path}
+									setPath={props.setPath}
+									as={props.as}
+								/>
+							)}
+						</div>
 					);
 				})}
 			</div>
