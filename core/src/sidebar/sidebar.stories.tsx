@@ -182,6 +182,26 @@ const bodyData: ISection[] = [
 					},
 				],
 			},
+			{
+				title: "Item title",
+				path: "/7000",
+				iconNormal: (
+					<Icon display="inline" component={outline.DownloadClound} />
+				),
+				iconActive: (
+					<Icon display="inline" component={solid.DownloadClound} />
+				),
+			},
+			{
+				title: "Item title",
+				path: "/8000",
+				iconNormal: (
+					<Icon display="inline" component={outline.DownloadClound} />
+				),
+				iconActive: (
+					<Icon display="inline" component={solid.DownloadClound} />
+				),
+			},
 		],
 	},
 ];
@@ -197,7 +217,7 @@ const footerData: IMenu[] = [
 	},
 	{
 		title: "Phân quyền",
-		path: "/user",
+		path: "/permission",
 		iconNormal: <Icon display="inline" component={outline.User} />,
 		iconActive: <Icon display="inline" component={solid.User} />,
 		isChild: false,
@@ -208,13 +228,15 @@ const footerData: IMenu[] = [
 		iconNormal: <Icon display="inline" component={outline.Noti} />,
 		iconActive: <Icon display="inline" component={solid.Noti} />,
 		isChild: false,
+		isDisable: true,
 	},
 	{
 		title: "Thay đổi mật khẩu",
-		path: "/lock",
+		path: "/change_password",
 		iconNormal: <Icon display="inline" component={outline.Lock} />,
 		iconActive: <Icon display="inline" component={solid.Lock} />,
 		isChild: false,
+		isDisable: true,
 	},
 	{
 		title: "Đăng xuất",
