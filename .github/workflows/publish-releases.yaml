@@ -20,8 +20,8 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
                   registry-url: "https://registry.npmjs.org"
-            - run: yarn add husky
             - run: cd core && yarn install
+            - run: yarn add husky
             - run: npm publish --access public
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
