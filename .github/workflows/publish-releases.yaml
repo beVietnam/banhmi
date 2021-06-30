@@ -20,7 +20,6 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
                   registry-url: "https://registry.npmjs.org"
-            - run: yarn install
             - run: yarn remove husky
             - run: cd core && yarn install
             - run: npm publish --access public
