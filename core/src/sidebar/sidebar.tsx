@@ -31,7 +31,12 @@ export const Sidebar = (
 										{!menu.isDisable && (
 											<Collapse
 												key={menuIndex}
-												menu={menu}
+												menu={{
+													...menu,
+													isActive: props.path.includes(
+														menu.path.toLowerCase()
+													),
+												}}
 												path={props.path}
 												setPath={props.setPath}
 												as={props.as}
@@ -53,7 +58,12 @@ export const Sidebar = (
 							{!menu.isDisable && (
 								<Collapse
 									key={menuIndex}
-									menu={menu}
+									menu={{
+										...menu,
+										isActive: props.path.includes(
+											menu.path.toLowerCase()
+										),
+									}}
 									path={props.path}
 									setPath={props.setPath}
 									as={props.as}
