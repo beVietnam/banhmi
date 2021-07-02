@@ -2,7 +2,7 @@ import styles from "./toggle.module.css";
 
 interface Props {
 	name?: string;
-	onChange?: (state: boolean) => void;
+	setValue?: (state: boolean) => void;
 	value?: string | number | readonly string[];
 	defaultValue?: string | number | readonly string[];
 	checked?: boolean;
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Toggle = (props: Props) => {
-	const { name, value, defaultValue, checked, defaultChecked, onChange } =
+	const { name, value, defaultValue, checked, defaultChecked, setValue } =
 		props;
 	return (
 		<label className={styles.toggle}>
@@ -22,7 +22,7 @@ const Toggle = (props: Props) => {
 				defaultValue={defaultValue}
 				checked={checked}
 				defaultChecked={defaultChecked}
-				onChange={(e) => onChange?.(e.target.checked)}
+				onChange={(e) => setValue?.(e.target.checked)}
 			/>
 			<div className={styles.inner} />
 			<div className={styles.switch} />
