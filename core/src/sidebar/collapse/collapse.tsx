@@ -1,5 +1,5 @@
 import { Menu, WrappedProps as ChildWrapperProps } from "../menu/menu";
-import { IMenu } from "../common";
+import { IMenu } from "../sidebar.interface";
 import { useState } from "react";
 
 export const Collapse = (
