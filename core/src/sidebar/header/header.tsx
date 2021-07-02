@@ -1,5 +1,5 @@
 import s from "./header.module.css";
-import { IUserInfo } from "../common";
+import { IUserInfo } from "../sidebar.interface";
 
 export const Header = (props: { userInfo: IUserInfo }): JSX.Element => {
 	return (
