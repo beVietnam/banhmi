@@ -17,6 +17,6 @@ export interface IMenu {
 }
 
 export interface ISection {
-	title: string;
+	title?: string;
 	data: IMenu[];
 }
