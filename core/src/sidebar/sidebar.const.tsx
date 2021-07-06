@@ -27,7 +27,6 @@ const typeLozenge = (
 
 export const bodyData: ISection[] = [
 	{
-		title: "subsection",
 		data: [
 			{
 				title: "Item title",
