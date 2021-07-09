@@ -31,19 +31,15 @@ export const Sidebar = (props: Props & ChildWrapperProps): JSX.Element => {
 	function getMenu(menu: IMenu, key: number | string): JSX.Element {
 		return (
 			<div key={key}>
-				{!menu.isDisable && (
-					<Collapse
-						menu={{
-							...menu,
-							isActive: props.path.includes(
-								menu.path.toLowerCase()
-							),
-						}}
-						path={props.path}
-						setPath={props.setPath}
-						as={props.as}
-					/>
-				)}
+				<Collapse
+					menu={{
+						...menu,
+						isActive: props.path.includes(menu.path.toLowerCase()),
+					}}
+					path={props.path}
+					setPath={props.setPath}
+					as={props.as}
+				/>
 			</div>
 		);
 	}

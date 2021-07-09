@@ -15,47 +15,58 @@ export const Menu = <T,>(
 ): JSX.Element => {
 	const { as: Wrapper = "div" } = props;
 	return (
-		<Wrapper href={props.menu.path}>
-			<div
-				className={[
-					s.container,
-					props.menu.isActive ? s.active : "",
-					props.menu.isActive && !props.menu.isChild ? s.root : "",
-				].join(" ")}
-			>
-				{/* icon */}
-				{props.menu.iconNormal && !props.menu.isActive && (
-					<span className={s.icon}>{props.menu.iconNormal}</span>
-				)}
+		<div>
+			{!props.menu.isDisable && (
+				<Wrapper href={props.menu.path}>
+					<div
+						className={[
+							s.container,
+							props.menu.isActive ? s.active : "",
+							props.menu.isActive && !props.menu.isChild
+								? s.root
+								: "",
+						].join(" ")}
+					>
+						{/* icon */}
+						{props.menu.iconNormal && !props.menu.isActive && (
+							<span className={s.icon}>
+								{props.menu.iconNormal}
+							</span>
+						)}
 
-				{props.menu.iconActive && props.menu.isActive && (
-					<span className={s.icon}>{props.menu.iconActive}</span>
-				)}
+						{props.menu.iconActive && props.menu.isActive && (
+							<span className={s.icon}>
+								{props.menu.iconActive}
+							</span>
+						)}
 
-				{/* title */}
-				<span
-					className={[s.title, props.menu.isChild ? s.line : ""].join(
-						" "
-					)}
-				>
-					{props.menu.title}
-				</span>
-
-				{/* type */}
-				<span className={s.right}>
-					<span>{props.menu.after}</span>
-
-					{/* dropdown */}
-					{props.menu.childrens && (
-						<span className={s.dropdown}>
-							<Icon
-								display="inline"
-								component={solid.ChevronDown}
-							></Icon>
+						{/* title */}
+						<span
+							className={[
+								s.title,
+								props.menu.isChild ? s.line : "",
+							].join(" ")}
+						>
+							{props.menu.title}
 						</span>
-					)}
-				</span>
-			</div>
-		</Wrapper>
+
+						{/* type */}
+						<span className={s.right}>
+							<span>{props.menu.after}</span>
+
+							{/* dropdown */}
+							{props.menu.childrens && (
+								<span className={s.dropdown}>
+									<Icon
+										display="inline"
+										component={solid.ChevronDown}
+									></Icon>
+								</span>
+							)}
+						</span>
+					</div>
+				</Wrapper>
+			)}
+		</div>
 	);
 };
