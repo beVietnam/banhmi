@@ -62,11 +62,12 @@ export const bodyData: ISection[] = [
 					<Icon display="inline" component={solid.DownloadClound} />
 				),
 				childrens: [
-					{ title: "Item title", path: "/2101" },
+					{ title: "Item title", path: "/2101", isDisable: true },
 					{
 						title: "Item title",
 						path: "/2102",
 						after: typeBadge,
+						isDisable: true,
 					},
 					{
 						title: "Item title",
@@ -86,6 +87,7 @@ export const bodyData: ISection[] = [
 				iconActive: (
 					<Icon display="inline" component={solid.DownloadClound} />
 				),
+				isDisable: true,
 				childrens: [
 					{ title: "Item title", path: "/3101" },
 					{
