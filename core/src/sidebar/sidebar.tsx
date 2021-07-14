@@ -5,19 +5,22 @@ import s from "./sidebar.module.css";
 import { IMenu, IUserInfo, ISection } from "./sidebar.interface";
 import { WrappedProps as ChildWrapperProps } from "./menu/menu";
 
-export const Sidebar = (
-	props: {
-		headerData: IUserInfo;
-		bodyData: ISection[];
-		footerData: IMenu[];
-		path: string;
-		setPath: (path: string) => void;
-	} & ChildWrapperProps
-): JSX.Element => {
+interface Props {
+	headerData: IUserInfo;
+	bodyData: ISection[];
+	footerData: IMenu[];
+	widthPx?: number;
+	path: string;
+	setPath: (path: string) => void;
+}
+
+export const Sidebar = (props: Props & ChildWrapperProps): JSX.Element => {
+	const { widthPx = 232 } = props;
+
 	function getSection(section: ISection, key: number | string): JSX.Element {
 		return (
 			<div key={key}>
-				<Heading>{section.title}</Heading>
+				{section.title && <Heading>{section.title}</Heading>}
 				{section.data.map((menu, menuIndex) =>
 					getMenu(menu, menuIndex)
 				)}
@@ -27,27 +30,22 @@ export const Sidebar = (
 
 	function getMenu(menu: IMenu, key: number | string): JSX.Element {
 		return (
-			<div>
-				{!menu.isDisable && (
-					<Collapse
-						key={key}
-						menu={{
-							...menu,
-							isActive: props.path.includes(
-								menu.path.toLowerCase()
-							),
-						}}
-						path={props.path}
-						setPath={props.setPath}
-						as={props.as}
-					/>
-				)}
+			<div key={key}>
+				<Collapse
+					menu={{
+						...menu,
+						isActive: props.path.includes(menu.path.toLowerCase()),
+					}}
+					path={props.path}
+					setPath={props.setPath}
+					as={props.as}
+				/>
 			</div>
 		);
 	}
 
 	return (
-		<div className={s.container}>
+		<div className={s.container} style={{ width: `${widthPx}px` }}>
 			{/* Header */}
 			<Header userInfo={props.headerData} />
 

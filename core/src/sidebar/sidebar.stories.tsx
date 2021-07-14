@@ -33,6 +33,7 @@ storiesOf("Sidebar", module).add("Main", () => {
 				headerData={defaultUser}
 				bodyData={bodyData}
 				footerData={footerData}
+				widthPx={350}
 				as={MenuItemWrapper}
 				path={path}
 				setPath={setPath}

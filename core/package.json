@@ -1,6 +1,6 @@
 {
 	"name": "@banhmi/core",
-	"version": "1.3.0-revenue",
+	"version": "1.3.3",
 	"description": "Be's theme for Moai UI kit",
 	"main": "dist/cjs.js",
 	"module": "dist/esm.js",
