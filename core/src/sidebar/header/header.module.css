@@ -9,7 +9,8 @@
 	user-select: none;
 }
 
-.picture {
+.picture,
+.picture img {
 	width: 32px;
 	height: 32px;
 }

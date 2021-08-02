@@ -6,11 +6,11 @@ storiesOf("Toggle", module).add("Main", () => {
 	const [checked, setChecked] = useState<boolean>(false);
 	return (
 		<Fragment>
-			<Toggle checked={checked} onStateChange={setChecked} />
+			<Toggle checked={checked} setValue={setChecked} />
 			<br />
 			<Toggle
 				checked={!checked}
-				onStateChange={(state) => setChecked(!state)}
+				setValue={(state) => setChecked(!state)}
 			/>
 		</Fragment>
 	);
