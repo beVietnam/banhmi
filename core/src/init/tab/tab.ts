@@ -4,7 +4,7 @@ import s from "./tab.module.css";
 Tabs.styles.flat = {
 	...Tabs.styles.flat,
 	title: [Tabs.styles.flat.title, s.title].join(" "),
-	active: border.highlightStrong,
+	active: border.strong,
 	inactive: [Tabs.styles.flat.inactive, text.muted].join(" "),
 };
 
