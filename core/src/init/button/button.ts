@@ -16,6 +16,19 @@ Button.colors.highlight = {
 	},
 };
 
+Button.colors.failure = {
+	flat: {
+		selectedClassName: flat.selected,
+		mainClassName: [flat.failure, border.radius].join(" "),
+		progressCircleColor: ProgressCircle.colors.neutral,
+	},
+	outset: {
+		selectedClassName: outset.selected,
+		mainClassName: [outset.failure, border.radius].join(" "),
+		progressCircleColor: ProgressCircle.colors.neutral,
+	},
+};
+
 Button.colors.none = {
 	flat: {
 		selectedClassName: flat.selected,

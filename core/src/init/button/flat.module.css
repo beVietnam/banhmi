@@ -59,6 +59,33 @@
 	border-color: var(--support-3);
 }
 
+/* FAILURE */
+
+:global(.light) .failure,
+:global(.dark) .failure {
+	color: var(--failure);
+	border-color: transparent;
+}
+
+:global(.light) .failure:hover,
+:global(.dark) .failure:hover {
+	color: var(--failure);
+	background-color: var(--failure-1);
+	border-color: transparent;
+}
+
+:global(.light) .failure:active,
+:global(.dark) .failure:active {
+	border-color: var(--failure);
+	background-color: transparent;
+}
+
+:global(.light) .failure.selected:not(.x),
+:global(.dark) .failure.selected:not(.x) {
+	background-color: transparent;
+	border-color: var(--failure);
+}
+
 /* DISABLED */
 
 :global(.light) .main:disabled:not(.x) {

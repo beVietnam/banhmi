@@ -80,6 +80,37 @@
 	background-color: var(--highlight-5);
 }
 
+/* FAILURE */
+
+:global(.light) .failure,
+:global(.dark) .failure {
+	background-color: var(--failure);
+	color: var(--white);
+	border-color: transparent;
+	box-shadow: none;
+}
+
+:global(.light) .failure:hover,
+:global(.dark) .failure:hover {
+	color: var(--gray-1);
+}
+
+:global(.light) .failure:active,
+:global(.dark) .failure:active {
+	color: var(--white);
+	border-color: var(--failure-1);
+}
+
+:global(.light) .selected.failure,
+:global(.light) .selected.failure:hover,
+:global(.light) .selected.failure:active,
+:global(.dark) .selected.failure,
+:global(.dark) .selected.failure:hover,
+:global(.dark) .selected.failure:active {
+	color: var(--white);
+	border-color: var(--failure-1);
+}
+
 /* DISABLED */
 
 :global(.light) .main:not(.busy):disabled {
