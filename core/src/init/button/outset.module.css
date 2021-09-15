@@ -84,7 +84,7 @@
 
 :global(.light) .failure,
 :global(.dark) .failure {
-	background-color: var(--failure);
+	background-color: var(--failure-8);
 	color: var(--white);
 	border-color: transparent;
 	box-shadow: none;

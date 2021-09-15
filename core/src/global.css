@@ -26,7 +26,16 @@ html:not(.x) {
 	--support-3: hsl(221, 100%, 61%);
 	--support-4: hsl(217, 85%, 49%);
 
-	--failure: hsla(0, 100%, 34%, 1);
+	--failure-0: hsl(0, 76%, 97%);
+	--failure-1: hsl(0, 76%, 94%); /* 200 */
+	--failure-2: hsl(0, 86%, 90%);
+	--failure-3: hsl(0, 98%, 82%); /* 300 */
+	--failure-4: hsl(0, 98%, 71%);
+	--failure-5: hsl(0, 99%, 60%);
+	--failure-6: hsl(0, 100%, 50%);
+	--failure-7: hsl(0, 100%, 42%); /* 400 */
+	--failure-8: hsl(0, 100%, 34%); /* 500 */
+	--failure-9: hsl(0, 100%, 30%);
 
 	/* Border Radius */
 	--radius-1: 6px;
