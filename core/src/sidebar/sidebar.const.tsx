@@ -62,12 +62,12 @@ export const bodyData: ISection[] = [
 					<Icon display="inline" component={solid.DownloadClound} />
 				),
 				childrens: [
-					{ title: "Item title", path: "/2101", isDisable: true },
+					{ title: "Item title", path: "/2101", hidden: true },
 					{
 						title: "Item title",
 						path: "/2102",
 						after: typeBadge,
-						isDisable: true,
+						hidden: true,
 					},
 					{
 						title: "Item title",
@@ -87,7 +87,7 @@ export const bodyData: ISection[] = [
 				iconActive: (
 					<Icon display="inline" component={solid.DownloadClound} />
 				),
-				isDisable: true,
+				hidden: true,
 				childrens: [
 					{ title: "Item title", path: "/3101" },
 					{
@@ -225,7 +225,7 @@ export const footerData: IMenu[] = [
 		iconNormal: <Icon display="inline" component={outline.Noti} />,
 		iconActive: <Icon display="inline" component={solid.Noti} />,
 		isChild: false,
-		isDisable: true,
+		hidden: true,
 	},
 	{
 		title: "Thay đổi mật khẩu",
@@ -233,7 +233,7 @@ export const footerData: IMenu[] = [
 		iconNormal: <Icon display="inline" component={outline.Lock} />,
 		iconActive: <Icon display="inline" component={solid.Lock} />,
 		isChild: false,
-		isDisable: true,
+		hidden: true,
 	},
 	{
 		title: "Đăng xuất",

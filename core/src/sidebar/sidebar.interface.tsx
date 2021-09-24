@@ -1,3 +1,5 @@
+
+import { WrappedProps as ChildWrapperProps } from "./menu/menu";
 export interface IUserInfo {
 	username: string;
 	userRole: string;
@@ -13,10 +15,37 @@ export interface IMenu {
 	isChild?: boolean;
 	childrens?: IMenu[];
 	isActive?: boolean;
-	isDisable?: boolean;
+	hidden?: boolean;
 }
 
 export interface ISection {
 	title?: string;
 	data: IMenu[];
+}
+
+export interface Props {
+	headerData: IUserInfo;
+	bodyData: ISection[];
+	footerData: IMenu[];
+	widthPx?: number;
+	path?: string;
+	/**
+	 * callback when click tab, can to use setPath to navigate
+	 */
+	setPath?: (path: string) => void;
+}
+
+
+export interface MenuProps {
+	menu: IMenu;
+	path: Props['path'];
+	setPath: Props['setPath'];
+	as: ChildWrapperProps['as'];
+}
+
+export interface SectionProps {
+	section: ISection;
+	path: Props['path'];
+	setPath: Props['setPath'];
+	as: ChildWrapperProps['as'];
 }

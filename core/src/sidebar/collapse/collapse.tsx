@@ -1,35 +1,25 @@
 import { Menu, WrappedProps as ChildWrapperProps } from "../menu/menu";
-import { IMenu } from "../sidebar.interface";
+import { IMenu, Props } from "../sidebar.interface";
 import { useState } from "react";
 
 export const Collapse = (
 	props: {
 		menu: IMenu;
-		path: string;
-		setPath: (path: string) => void;
+		path: Props['path'];
+		setPath: Props['setPath'];
 	} & ChildWrapperProps
 ): JSX.Element => {
 	const [isExpand, setExpand] = useState(props.menu.isActive);
-
-	function toggleCollapse() {
-		setExpand(!isExpand);
-		if (!isExpand && props.path.includes(props.menu.path)) {
-			props.setPath("/");
-		}
-		if (!isExpand && !props.menu.childrens) {
-			props.setPath(props.menu.path);
-		}
-	}
 
 	return (
 		<div>
 			{props.menu.childrens ? (
 				<div>
-					<div onClick={() => toggleCollapse()}>
+					<div onClick={() => 	setExpand(!isExpand)}>
 						<Menu
 							menu={{
 								...props.menu,
-								isActive: props.path.includes(
+								isActive: props.path?.includes(
 									props.menu.path.toLowerCase()
 								),
 							}}
@@ -37,16 +27,20 @@ export const Collapse = (
 					</div>
 					{isExpand &&
 						props.menu.childrens.map((item) => {
-							const active = props.path.includes(
+							const active = props.path?.includes(
 								item.path.toLowerCase()
 							);
 							return (
 								<div
 									key={item.path}
-									onClick={() =>
-										props.setPath(
-											props.menu.path + item.path
-										)
+									onClick={() => {
+										if (props.setPath) {
+											props.setPath(
+												props.menu.path + item.path
+											)
+										}
+									}
+								
 									}
 								>
 									<Menu
@@ -62,11 +56,15 @@ export const Collapse = (
 						})}
 				</div>
 			) : (
-				<div onClick={() => props.setPath(props.menu.path)}>
+				<div onClick={() => {
+					if (props.setPath) {
+						props.setPath(props.menu.path)
+					}
+				}}>
 					<Menu
 						menu={{
 							...props.menu,
-							isActive: props.path.includes(
+							isActive: props.path?.includes(
 								props.menu.path.toLowerCase()
 							),
 						}}
