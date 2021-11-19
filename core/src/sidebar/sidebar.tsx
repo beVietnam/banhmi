@@ -2,47 +2,38 @@ import { Collapse } from "./collapse/collapse";
 import { Header } from "./header/header";
 import { Heading } from "./heading/heading";
 import s from "./sidebar.module.css";
-import { IMenu, IUserInfo, ISection } from "./sidebar.interface";
+import { Props, MenuProps, SectionProps } from "./sidebar.interface";
 import { WrappedProps as ChildWrapperProps } from "./menu/menu";
+import { memo } from "react";
 
-interface Props {
-	headerData: IUserInfo;
-	bodyData: ISection[];
-	footerData: IMenu[];
-	widthPx?: number;
-	path: string;
-	setPath: (path: string) => void;
-}
+
+const MenuItem  = memo(({ menu, path, setPath, as }: MenuProps) => {
+	return (
+		<Collapse
+			menu={{
+				...menu,
+				isActive: path?.includes(menu.path.toLowerCase()),
+			}}
+			path={path}
+			setPath={setPath}
+			as={as}
+		/>
+	)
+})
+
+const BodySection = memo(({ section, path, setPath, as }: SectionProps) => {
+	return (
+		<div>
+		{section.title && <Heading>{section.title}</Heading>}
+		{section.data.map((menu, menuIndex) =>
+			<MenuItem key={menuIndex} menu={menu} path={path} setPath={setPath} as={as} />
+			)}
+	</div>
+	)
+})
 
 export const Sidebar = (props: Props & ChildWrapperProps): JSX.Element => {
 	const { widthPx = 232 } = props;
-
-	function getSection(section: ISection, key: number | string): JSX.Element {
-		return (
-			<div key={key}>
-				{section.title && <Heading>{section.title}</Heading>}
-				{section.data.map((menu, menuIndex) =>
-					getMenu(menu, menuIndex)
-				)}
-			</div>
-		);
-	}
-
-	function getMenu(menu: IMenu, key: number | string): JSX.Element {
-		return (
-			<div key={key}>
-				<Collapse
-					menu={{
-						...menu,
-						isActive: props.path.includes(menu.path.toLowerCase()),
-					}}
-					path={props.path}
-					setPath={props.setPath}
-					as={props.as}
-				/>
-			</div>
-		);
-	}
 
 	return (
 		<div className={s.container} style={{ width: `${widthPx}px` }}>
@@ -51,15 +42,26 @@ export const Sidebar = (props: Props & ChildWrapperProps): JSX.Element => {
 
 			{/* Body */}
 			<div className={s.scroll}>
-				{props.bodyData.map((section, sectionIndex) =>
-					getSection(section, sectionIndex)
-				)}
+				{props.bodyData.map((section, key) => 
+					<BodySection
+						key={key}
+						section={section}
+						path={props.path}
+						setPath={props.setPath}
+						as={props.as}
+					/>)}
 			</div>
 
 			{/* Footer */}
 			<div className={s.footer}>
 				{props.footerData.map((menu, menuIndex) =>
-					getMenu(menu, menuIndex)
+					<MenuItem
+						key={menuIndex}
+						menu={menu}
+						path={props.path}
+						setPath={props.setPath}
+						as={props.as}
+					/>
 				)}
 			</div>
 		</div>

@@ -24,9 +24,7 @@ storiesOf("Sidebar", module).add("Main", () => {
 				headerData={defaultUser}
 				bodyData={bodyData}
 				footerData={footerData}
-				as="a"
-				path={path}
-				setPath={setPath}
+				as={MenuItemWrapper}
 			/>
 			<DivPx size={16} />
 			<Sidebar

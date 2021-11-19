@@ -4,6 +4,9 @@ import { Icon } from "@moai/core";
 import * as solid from "@banhmi/icon/solid";
 import { ComponentType, ElementType } from "react";
 
+	/**
+	 * it is a container to wrap item tab, can to use it to navigate by <a> tag
+	 */
 export type WrappedProps<P = {}> = {
 	as?: ComponentType<P> | ElementType;
 } & P;
@@ -15,8 +18,8 @@ export const Menu = <T,>(
 ): JSX.Element => {
 	const { as: Wrapper = "div" } = props;
 	return (
-		<div>
-			{!props.menu.isDisable && (
+		<>
+			{!props.menu.hidden && (
 				<Wrapper href={props.menu.path}>
 					<div
 						className={[
@@ -67,6 +70,6 @@ export const Menu = <T,>(
 					</div>
 				</Wrapper>
 			)}
-		</div>
+		</>
 	);
 };
