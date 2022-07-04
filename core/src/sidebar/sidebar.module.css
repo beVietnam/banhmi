@@ -49,3 +49,8 @@
 	justify-content: center;
 	text-transform: uppercase;
 }
+
+.userArea,
+.footerNote {
+	border-top: dashed 1px var(--gray-1);
+}

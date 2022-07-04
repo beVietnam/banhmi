@@ -9,10 +9,16 @@
 	user-select: none;
 }
 
-.picture,
-.picture img {
+.picture {
+	display: flex;
 	width: 32px;
 	height: 32px;
+}
+
+.secondaryPicture {
+	display: flex;
+	width: 40px;
+	height: 40px;
 }
 
 .right {
@@ -22,6 +28,14 @@
 .username {
 	font-weight: 600;
 	font-size: 18px;
+	line-height: 24px;
+	color: var(--gray-8);
+	align-self: stretch;
+}
+
+.secondaryUsername {
+	font-weight: 600;
+	font-size: 15px;
 	line-height: 24px;
 	color: var(--gray-8);
 	align-self: stretch;

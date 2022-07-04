@@ -6,8 +6,7 @@ import { Props, MenuProps, SectionProps } from "./sidebar.interface";
 import { WrappedProps as ChildWrapperProps } from "./menu/menu";
 import { memo } from "react";
 
-
-const MenuItem  = memo(({ menu, path, setPath, as }: MenuProps) => {
+const MenuItem = memo(({ menu, path, setPath, as }: MenuProps) => {
 	return (
 		<Collapse
 			menu={{
@@ -18,19 +17,25 @@ const MenuItem  = memo(({ menu, path, setPath, as }: MenuProps) => {
 			setPath={setPath}
 			as={as}
 		/>
-	)
-})
+	);
+});
 
 const BodySection = memo(({ section, path, setPath, as }: SectionProps) => {
 	return (
 		<div>
-		{section.title && <Heading>{section.title}</Heading>}
-		{section.data.map((menu, menuIndex) =>
-			<MenuItem key={menuIndex} menu={menu} path={path} setPath={setPath} as={as} />
-			)}
-	</div>
-	)
-})
+			{section.title && <Heading>{section.title}</Heading>}
+			{section.data.map((menu, menuIndex) => (
+				<MenuItem
+					key={menuIndex}
+					menu={menu}
+					path={path}
+					setPath={setPath}
+					as={as}
+				/>
+			))}
+		</div>
+	);
+});
 
 export const Sidebar = (props: Props & ChildWrapperProps): JSX.Element => {
 	const { widthPx = 232 } = props;
@@ -42,19 +47,30 @@ export const Sidebar = (props: Props & ChildWrapperProps): JSX.Element => {
 
 			{/* Body */}
 			<div className={s.scroll}>
-				{props.bodyData.map((section, key) => 
+				{/* user */}
+				{props.userArea && (
+					<div className={s.userArea}>
+						<Header
+							userInfo={props.userArea}
+							isSecondary
+						/>
+					</div>
+				)}
+
+				{props.bodyData.map((section, key) => (
 					<BodySection
 						key={key}
 						section={section}
 						path={props.path}
 						setPath={props.setPath}
 						as={props.as}
-					/>)}
+					/>
+				))}
 			</div>
 
 			{/* Footer */}
 			<div className={s.footer}>
-				{props.footerData.map((menu, menuIndex) =>
+				{props.footerData.map((menu, menuIndex) => (
 					<MenuItem
 						key={menuIndex}
 						menu={menu}
@@ -62,6 +78,10 @@ export const Sidebar = (props: Props & ChildWrapperProps): JSX.Element => {
 						setPath={props.setPath}
 						as={props.as}
 					/>
+				))}
+				{/* Footernote.. */}
+				{props.footerNote && (
+					<div className={s.footerNote}>{props.footerNote}</div>
 				)}
 			</div>
 		</div>

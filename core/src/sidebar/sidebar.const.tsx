@@ -6,9 +6,15 @@ import { IUserInfo, IMenu, ISection } from "./sidebar.interface";
 import img from "./ic_home_bus.png";
 
 //header
-export const defaultUser: IUserInfo = {
+export const defaultHeader: IUserInfo = {
 	username: "beSomething",
 	userRole: "super admin",
+	userImg: <img src={img} alt="" />,
+};
+
+export const defaultUser: IUserInfo = {
+	username: "Nguyen Van A",
+	userRole: "Dev",
 	userImg: <img src={img} alt="" />,
 };
 
@@ -226,6 +232,7 @@ export const footerData: IMenu[] = [
 		iconActive: <Icon display="inline" component={solid.Noti} />,
 		isChild: false,
 		hidden: true,
+		after: typeBadge,
 	},
 	{
 		title: "Thay đổi mật khẩu",
@@ -243,3 +250,27 @@ export const footerData: IMenu[] = [
 		isChild: false,
 	},
 ];
+
+export const footerNote: React.ReactNode = (
+	<div
+		style={{
+			display: "flex",
+			flexDirection: "column",
+			padding: "16px 16px 0",
+		}}
+	>
+		<b style={{ color: "#5E6D84", letterSpacing: "1px" }}>CẦN HỖ TRỢ?</b>
+		<div style={{ display: "flex", paddingTop: "8px" }}>
+			<div
+				style={{
+					borderRight: "1px solid #E1E3E8",
+					marginRight: "8px",
+					paddingRight: "8px",
+				}}
+			>
+				<span>1900 111111</span>
+			</div>
+			<span>chat@be.vn</span>
+		</div>
+	</div>
+);
